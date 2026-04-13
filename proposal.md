@@ -13,7 +13,7 @@
 ## Tema
 ### Descripción
 
-La pagina web de una cadena de peluquerias donde se muestra la sucursales, peluqueros y servicios disponibles.El cliente podra reservar su servicio deseado con su peluquero de preferencia en la sucursal de mayor comodidad para el. El peluquero por su parte podra revisar su agenda y aceptar turnos
+La página web de una cadena de peluquerías donde se muestran las sucursales, los peluqueros y los servicios disponibles. El cliente podrá reservar su servicio deseado con su peluquero de preferencia en la sucursal de mayor comodidad para él. El peluquero, por su parte, podrá revisar su agenda y aceptar turnos.
 ### Modelo
 <img width="628" height="1164" alt="modeloPeluqueria" src="https://github.com/user-attachments/assets/0f24d6ed-1e7d-487a-9c94-fbf0da821ab2" />
 
