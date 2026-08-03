@@ -5,6 +5,7 @@ import { typeOrmConfig } from './config/typeorm.config.js';
 import { ClientModule } from './modules/client/client.module.js';
 import { TurnModule } from './modules/turn/turn.module.js';
 import { SalonModule } from './modules/salon/salon.module.js';
+import { NameTypeModule } from './modules/name-type/name-type.module.js';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { SalonModule } from './modules/salon/salon.module.js';
     ClientModule,
     TurnModule,
     SalonModule,
+    NameTypeModule
   ],
   controllers: [],
   providers: [],

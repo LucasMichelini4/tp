@@ -4,7 +4,7 @@ import { ClientService } from './client.service';
 import { ClientDto } from './dto/client-dto.js';
 
 @Controller('api/v1/client')
-@ApiTags('Cliente')
+@ApiTags('Client')
 export class ClientController {
   constructor(private clientService: ClientService) { }
 
