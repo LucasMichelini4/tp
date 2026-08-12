@@ -7,6 +7,7 @@ import { TurnModule } from './modules/turn/turn.module.js';
 import { SalonModule } from './modules/salon/salon.module.js';
 import { NameTypeModule } from './modules/name-type/name-type.module.js';
 import { BarberModule } from './modules/barber/barber.module.js';
+import { ServiceModule } from './modules/service/service.module.js';
 
 @Module({
   imports: [
@@ -16,7 +17,8 @@ import { BarberModule } from './modules/barber/barber.module.js';
     TurnModule,
     SalonModule,
     NameTypeModule,
-    BarberModule
+    BarberModule,
+    ServiceModule
   ],
   controllers: [],
   providers: [],
