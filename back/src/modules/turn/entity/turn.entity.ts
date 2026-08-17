@@ -13,7 +13,7 @@ export class Turn {
   status!: boolean;
   @Column({ type: Boolean, nullable: false, default: false })
   deleted?: boolean;
-  @ManyToOne(() => Client, (client) => client.turns, {nullable: false})
+  @ManyToOne(() => Client, (client) => client.turns, { nullable: false })
   @JoinColumn({ name: 'client_dni', referencedColumnName: 'dni' })
   client!: Client;
   @ManyToOne(() => Barber, (barber) => barber.turns, { nullable: false })
@@ -22,7 +22,7 @@ export class Turn {
   @ManyToOne(() => NameType, (nameType) => nameType.turns, { nullable: false })
   @JoinColumn({ name: 'nameType_id', referencedColumnName: 'id' })
   nameType!: NameType;
-  @OneToOne(() => Salon, (salon) => salon.turn, {nullable: false})
+  @OneToOne(() => Salon, (salon) => salon.turn, { nullable: false })
   @JoinColumn({ name: 'salon_cuit', referencedColumnName: 'cuit' })
   salon!: Salon;
 }
