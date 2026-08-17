@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Turn } from 'src/modules/turn/entity/turn.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 @Entity('client')
 export class Client {
   @PrimaryGeneratedColumn()
@@ -13,4 +14,6 @@ export class Client {
   phone!: string;
   @Column({ type: Boolean, nullable: false, default: false })
   deleted?: boolean;
+  @OneToMany(() => Turn, (turn) => turn.client)
+  turns!: Turn[];
 }

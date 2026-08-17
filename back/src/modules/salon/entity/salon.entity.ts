@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Turn } from "src/modules/turn/entity/turn.entity";
+import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('salon')
 export class Salon {
@@ -16,4 +17,7 @@ export class Salon {
 
   @Column({ type: Boolean, nullable: false })
   deleted?: boolean;
+
+  @OneToOne(() => Turn, (turn) => turn.salon)
+  turn!: Turn[];
 }
