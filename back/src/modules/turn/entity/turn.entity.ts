@@ -7,7 +7,7 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn
 export class Turn {
   @PrimaryGeneratedColumn()
   id!: number;
-  @Column({ type: Date, nullable: false, })
+  @Column({ type: Date, nullable: false})
   date!: Date;
   @Column({ type: Boolean, nullable: false, default: false })
   status!: boolean;
