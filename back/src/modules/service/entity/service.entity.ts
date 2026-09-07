@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { NameType } from "src/modules/name-type/entity/name-type.entity.js";
+import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 
 @Entity('service')
 export class Service {
@@ -8,4 +9,7 @@ export class Service {
     name!: string;
     @Column({ type: Boolean, nullable: false, default: false })
     deleted?: boolean;
+
+    @OneToMany(() => NameType, (nameType) => nameType.service)
+    nameTypes!: NameType[];
 }

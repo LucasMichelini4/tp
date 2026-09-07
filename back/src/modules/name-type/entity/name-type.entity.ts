@@ -1,5 +1,6 @@
+import { Service } from "src/modules/service/entity/service.entity.js";
 import { Turn } from "src/modules/turn/entity/turn.entity";
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('nameType')
 export class NameType {
@@ -13,6 +14,11 @@ export class NameType {
   duration!: number;
   @Column({ type: Boolean, nullable: false, default: false })
   deleted?: boolean;
+
   @OneToMany(() => Turn, (turn) => turn.nameType)
   turns!: Turn[];
+
+  @ManyToOne(() => Service, (service) => service.nameTypes, { nullable: false })
+  @JoinColumn({ name: 'service_id', referencedColumnName: 'id' })
+  service!: Service;
 }

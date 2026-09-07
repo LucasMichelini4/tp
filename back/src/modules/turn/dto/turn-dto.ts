@@ -6,7 +6,7 @@ export class TurnDto {
   @IsNumber()
   @IsNotEmpty()
   @IsOptional()
-  id!: number;
+  id?: number;
 
   @IsNotEmpty()
   @Type(() => Date)
