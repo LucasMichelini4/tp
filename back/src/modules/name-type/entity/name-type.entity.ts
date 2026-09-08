@@ -18,7 +18,7 @@ export class NameType {
   @OneToMany(() => Turn, (turn) => turn.nameType)
   turns!: Turn[];
 
-  @ManyToOne(() => Service, (service) => service.nameTypes, { nullable: false })
-  @JoinColumn({ name: 'service_id', referencedColumnName: 'id' })
-  service!: Service;
+  //@ManyToOne(() => Service, (service) => service.nameTypes, { nullable: false })
+  //@JoinColumn({ name: 'service_id', referencedColumnName: 'id' })
+  //service!: Service;
 }

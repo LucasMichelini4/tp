@@ -1,6 +1,6 @@
 export interface TurnDto {
   id?: number;
-  date: Date;
+  date: string | Date;
   status: boolean;
   deleted?: boolean;
 

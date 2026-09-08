@@ -1,12 +1,13 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, } from '@angular/core';
+import { CreateTurnComponent } from './components/create-turn/create-turn.component.js';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [CreateTurnComponent],
   selector: 'app-root',
+  standalone: true,
   styleUrl: './app.css',
-  templateUrl: './app.html',
+  template: '<app-create-turn></app-create-turn>',
 })
 export class App {
-  protected readonly title = signal('front');
+
 }

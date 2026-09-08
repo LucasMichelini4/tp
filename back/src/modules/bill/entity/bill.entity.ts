@@ -12,6 +12,6 @@ export class Bill {
     @Column({ type: Boolean, nullable: false, default: false })
     deleted?: boolean;
 
-    @OneToOne(() => Turn, (turn) => turn.bill)
-    turn!: Turn[];
+    //@OneToOne(() => Turn, (turn) => turn.bill)
+    //turn!: Turn[];
 }

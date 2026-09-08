@@ -10,6 +10,6 @@ export class Service {
     @Column({ type: Boolean, nullable: false, default: false })
     deleted?: boolean;
 
-    @OneToMany(() => NameType, (nameType) => nameType.service)
-    nameTypes!: NameType[];
+    //@OneToMany(() => NameType, (nameType) => nameType.service)
+    //nameTypes!: NameType[];
 }

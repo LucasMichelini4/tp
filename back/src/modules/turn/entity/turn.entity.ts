@@ -4,6 +4,7 @@ import { Client } from "src/modules/client/entity/client.entity";
 import { NameType } from "src/modules/name-type/entity/name-type.entity";
 import { Salon } from "src/modules/salon/entity/salon.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm"
+
 @Entity('turn')
 export class Turn {
   @PrimaryGeneratedColumn()
@@ -31,7 +32,7 @@ export class Turn {
   @JoinColumn({ name: 'salon_cuit', referencedColumnName: 'cuit' })
   salon!: Salon;
 
-  @OneToOne(() => Bill, (bill) => bill.turn, { nullable: false })
-  @JoinColumn({ name: 'bill_id', referencedColumnName: 'id' })
-  bill!: Bill;
+  //@OneToOne(() => Bill, (bill) => bill.turn, { nullable: false })
+  //@JoinColumn({ name: 'bill_id', referencedColumnName: 'id' })
+  //bill!: Bill;
 }
