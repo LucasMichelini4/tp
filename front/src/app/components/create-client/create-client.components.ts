@@ -104,6 +104,17 @@ export class ClientComponent implements OnInit{
   }
  }
 
+ restoreClient(dni: string): void {
+  this.clientService.restoreClient(dni).subscribe({
+    next: () => this.loadAllData(),
+    error: (err) => console.error('Error al restaurar al Cliente', err)
+  });
+ }
+
+toggleView(showDeletedList: boolean): void {
+  this.showDeleted = showDeletedList;
+}
+
  resetForm(): void {
   this.isEditing = false;
   this.clientForm.reset();
