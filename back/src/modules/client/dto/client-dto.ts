@@ -1,9 +1,9 @@
 import { IsBoolean, IsEmail, IsNotEmpty, IsNumber, IsOptional, IsString, } from 'class-validator';
 
 export class ClientDto {
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  dni!: number;
+  dni!: string;
 
   @IsString()
   @IsNotEmpty()

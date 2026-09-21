@@ -5,7 +5,7 @@ import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
 export class Barber {
 
     @PrimaryColumn()
-    dni!: number;
+    dni!: string;
     @Column({ type: String, nullable: false, length: 10 })
     name!: string;
     @Column({ type: Boolean, nullable: false, default: false })

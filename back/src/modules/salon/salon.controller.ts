@@ -14,7 +14,7 @@ export class SalonController {
   }
 
   @Get(':cuit')
-  getSalonByCuit(@Param('cuit') cuit: number) {
+  getSalonByCuit(@Param('cuit') cuit: string) {
     return this.salonService.findSalon(cuit);
   }
 
@@ -34,12 +34,12 @@ export class SalonController {
   }
 
   @Delete('/:cuit')
-  deleteSalon(@Param('cuit') cuit: number) {
+  deleteSalon(@Param('cuit') cuit: string) {
     return this.salonService.deleteSalon(cuit);
   }
 
   @Patch('/restore/:cuit')
-  restoreSalon(@Param('cuit') cuit: number) {
+  restoreSalon(@Param('cuit') cuit: string) {
     return this.salonService.restoreSalon(cuit);
   }
 }

@@ -21,7 +21,7 @@ export class ClientService {
     }
   }
 
-  async findClient(dni: number) {
+  async findClient(dni: string) {
     return await this.clientRepository.findOne({ where: { dni } });
   }
 
@@ -37,7 +37,7 @@ export class ClientService {
     return await this.clientRepository.save(client);
   }
 
-  async deleteClient(dni: number) {
+  async deleteClient(dni: string) {
     const clientExists = await this.findClient(dni);
     if (!clientExists) {
       throw new ConflictException('El cliente con dni: ' + dni + ' no existe');
@@ -49,7 +49,7 @@ export class ClientService {
     return rows.affected == 1;
   }
 
-  async restoreClient(dni: number) {
+  async restoreClient(dni: string) {
     const clientExists = await this.findClient(dni);
     if (!clientExists) {
       throw new ConflictException('El cliente con DNI: ' + dni + ' no existe');

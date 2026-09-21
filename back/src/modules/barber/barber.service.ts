@@ -18,7 +18,7 @@ export class BarberService {
         }
     }
 
-    async findBarber(dni: number) {
+    async findBarber(dni: string) {
         return await this.barberRepository.findOne({ where: { dni } });
     }
 
@@ -34,7 +34,7 @@ export class BarberService {
         return await this.barberRepository.save(barber);
     }
 
-    async deleteBarber(dni: number) {
+    async deleteBarber(dni: string) {
         const barberExists = await this.findBarber(dni);
         if (!barberExists) {
             throw new ConflictException('El barber con dni: ' + dni + ' no existe');
@@ -46,7 +46,7 @@ export class BarberService {
         return rows.affected == 1;
     }
 
-    async restoreBarber(dni: number) {
+    async restoreBarber(dni: string) {
         const barberExists = await this.findBarber(dni);
         if (!barberExists) {
             throw new ConflictException('El barber con DNI ' + dni + ' no existe');

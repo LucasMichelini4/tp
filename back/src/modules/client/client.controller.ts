@@ -14,7 +14,7 @@ export class ClientController {
   }
 
   @Get(':dni')
-  getClientByDni(@Param('dni') dni: number) {
+  getClientByDni(@Param('dni') dni: string) {
     return this.clientService.findClient(dni);
   }
 
@@ -33,12 +33,12 @@ export class ClientController {
   }
 
   @Delete('/:dni')
-  deleteClient(@Param('dni') dni: number) {
+  deleteClient(@Param('dni') dni: string) {
     return this.clientService.deleteClient(dni);
   }
 
   @Patch('/restore/:dni')
-  restoreClient(@Param('dni') dni: number) {
+  restoreClient(@Param('dni') dni: string) {
     return this.clientService.restoreClient(dni);
   }
 }

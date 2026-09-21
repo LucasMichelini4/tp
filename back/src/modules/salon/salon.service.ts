@@ -19,7 +19,7 @@ export class SalonService {
     }
   }
 
-  async findSalon(cuit: number) {
+  async findSalon(cuit: string) {
     return await this.salonRepository.findOne({ where: { cuit } })
   }
 
@@ -35,7 +35,7 @@ export class SalonService {
     return await this.salonRepository.save(salon);
   }
 
-  async deleteSalon(cuit: number) {
+  async deleteSalon(cuit: string) {
     const salonExist = await this.findSalon(cuit)
     if (!salonExist) {
       throw new ConflictException('El salon con cuit: ' + cuit + ' no existe');
@@ -47,7 +47,7 @@ export class SalonService {
     return rows.affected == 1;
   }
 
-  async restoreSalon(cuit: number) {
+  async restoreSalon(cuit: string) {
     const salonExist = await this.findSalon(cuit)
 
     if (!salonExist) {

@@ -14,7 +14,7 @@ export class BarberController {
     }
 
     @Get('/:dni')
-    getBarberByDni(@Param('dni') dni: number) {
+    getBarberByDni(@Param('dni') dni: string) {
         return this.barberService.findBarber(dni);
     }
 
@@ -34,12 +34,12 @@ export class BarberController {
     }
 
     @Delete('/:dni')
-    deleteBarber(@Param('dni') dni: number) {
+    deleteBarber(@Param('dni') dni: string) {
         return this.barberService.deleteBarber(dni);
     }
 
     @Patch('/restore/:dni')
-    restoreBarber(@Param('dni') dni: number) {
+    restoreBarber(@Param('dni') dni: string) {
         return this.barberService.restoreBarber(dni);
     }
 }

@@ -1,10 +1,10 @@
 import { Turn } from "src/modules/turn/entity/turn.entity";
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToOne, PrimaryColumn } from "typeorm";
 
 @Entity('salon')
 export class Salon {
-  @PrimaryGeneratedColumn()
-  cuit!: number;
+  @PrimaryColumn()
+  cuit!: string;
 
   @Column({ type: String, nullable: false, length: 10 })
   legalName!: string;
@@ -12,8 +12,8 @@ export class Salon {
   @Column({ type: String, nullable: false, length: 30 })
   address!: string;
 
-  @Column({ type: Number, nullable: false })
-  phone!: number;
+  @Column({ type: String, nullable: false })
+  phone!: string;
 
   @Column({ type: Boolean, nullable: false })
   deleted?: boolean;

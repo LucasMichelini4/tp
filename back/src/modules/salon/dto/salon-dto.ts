@@ -1,10 +1,9 @@
 import { IsBoolean, IsNotEmpty, IsNumber, IsPositive, IsString } from "class-validator";
 
 export class SalonDto {
-  @IsNumber()
-  @IsPositive()
+  @IsString()
   @IsNotEmpty()
-  cuit!: number;
+  cuit!: string;
 
   @IsString()
   @IsNotEmpty()
@@ -14,9 +13,9 @@ export class SalonDto {
   @IsNotEmpty()
   address!: string;
 
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  phone!: number;
+  phone!: string;
 
   @IsNotEmpty()
   @IsBoolean()

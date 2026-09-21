@@ -1,5 +1,4 @@
 import { Barber } from "src/modules/barber/entity/barber.entity";
-import { Bill } from "src/modules/bill/entity/bill.entity.js";
 import { Client } from "src/modules/client/entity/client.entity";
 import { NameType } from "src/modules/name-type/entity/name-type.entity";
 import { Salon } from "src/modules/salon/entity/salon.entity";

@@ -1,9 +1,9 @@
 import { Turn } from 'src/modules/turn/entity/turn.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryColumn } from 'typeorm';
 @Entity('client')
 export class Client {
-  @PrimaryGeneratedColumn()
-  dni!: number;
+  @PrimaryColumn()
+  dni!: string;
   @Column({ type: String, nullable: false, length: 10 })
   name!: string;
   @Column({ type: String, nullable: false, length: 10 })

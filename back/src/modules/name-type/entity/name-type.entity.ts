@@ -1,4 +1,3 @@
-import { Service } from "src/modules/service/entity/service.entity.js";
 import { Turn } from "src/modules/turn/entity/turn.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 

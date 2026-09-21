@@ -1,9 +1,8 @@
-import { NameType } from "src/modules/name-type/entity/name-type.entity.js";
-import { Column, Entity, OneToMany, PrimaryColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity('service')
 export class Service {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn()
     id!: number;
     @Column({ type: String, nullable: false, length: 10 })
     name!: string;

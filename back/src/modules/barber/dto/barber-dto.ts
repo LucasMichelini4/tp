@@ -2,9 +2,9 @@ import { IsBoolean, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-val
 
 export class BarberDto {
 
-    @IsNumber()
+    @IsString()
     @IsNotEmpty()
-    dni!: number;
+    dni!: string;
 
     @IsString()
     @IsNotEmpty()
