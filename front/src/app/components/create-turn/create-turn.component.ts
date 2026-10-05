@@ -41,6 +41,8 @@ export class CreateTurnComponent {
       error: (err) => {
         console.error(err);
         alert('Error al guardar el turno!')
+
+
       }
     })
   }
