@@ -49,7 +49,7 @@ export class ServiceComponent implements OnInit {
   }
 
   loadDeletedServices(): void {
-    this.serviceService.getService().subscribe({
+    this.serviceService.getServiceDeleted().subscribe({
       next: (data) => (this.service = data),
       error: (err) => {
         console.error('Error al cargar los servicios eliminados', err)

@@ -22,7 +22,7 @@ export class ServiceService {
   }
 
   getServiceById(id: number): Observable<Service> {
-    return this.http.get<Service>(`${this.apiUrl}/{id}`);
+    return this.http.get<Service>(`${this.apiUrl}/${id}`);
   }
 
   updateService(service: Service): Observable<Service> {
@@ -30,7 +30,7 @@ export class ServiceService {
   }
 
   deletedService(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/{dni}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
   restoreService(id: number): Observable<Service> {
