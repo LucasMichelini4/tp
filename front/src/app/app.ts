@@ -1,13 +1,11 @@
-import { Component, } from '@angular/core';
-import { CreateTurnComponent } from './components/create-turn/create-turn.component.js';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
-  imports: [CreateTurnComponent],
   selector: 'app-root',
   standalone: true,
-  styleUrl: './app.css',
-  template: '<app-create-turn></app-create-turn>',
+  imports: [RouterOutlet],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
 })
-export class App {
-
-}
+export class App { }

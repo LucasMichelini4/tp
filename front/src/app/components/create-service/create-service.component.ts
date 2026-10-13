@@ -24,7 +24,7 @@ export class ServiceComponent implements OnInit {
   errorMessage = '';
 
   serviceForm = this.fb.group({
-    id: ['', [Validators.required]],
+    id: ['', [Validators.required, Validators.pattern(/^[0-9]+$/)]],
     name: ['', [Validators.required, Validators.maxLength(10)]]
 
   })

@@ -1,0 +1,96 @@
+<main class="booking-page" aria-labelledby="page-title">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand__mark" aria-hidden="true">B</span>
+      <span class="brand__name">BARBERÍA<span> / TURNOS</span></span>
+    </div>
+    <span class="topbar__section">Gestión de turnos</span>
+  </header>
+
+  <div class="booking-layout">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow"><span class="eyebrow__line"></span> Agenda de la barbería</p>
+      <h1 id="page-title">Un buen corte empieza con <span>un buen turno.</span></h1>
+      <p class="intro__copy">
+        Organizá la agenda y prepará cada visita con tiempo. Cargá la fecha y hora
+        para sumar un turno.
+      </p>
+
+      <div class="shop-card" aria-label="Información de la agenda">
+        <div class="shop-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path d="M13 8v32M24 8v32M35 8v32" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <path d="M8 16h32M8 32h32" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+            <circle cx="13" cy="16" r="3" fill="currentColor" />
+            <circle cx="35" cy="32" r="3" fill="currentColor" />
+          </svg>
+        </div>
+        <div>
+          <strong>Tu agenda, siempre al día</strong>
+          <p>Registrá cada reserva desde un solo lugar.</p>
+        </div>
+      </div>
+
+      <p class="intro__note">Cortes con carácter. Atención a tu ritmo.</p>
+    </section>
+
+    <section class="form-card" aria-labelledby="form-title">
+      <div class="form-card__topline">
+        <span class="form-card__step">01</span>
+        <span class="form-card__label">Nueva reserva</span>
+      </div>
+
+      <h2 id="form-title">Crear turno</h2>
+      <p class="form-card__description">Completá los datos para agregarlo a la agenda.</p>
+
+      <form [formGroup]="turnForm" (ngSubmit)="onSubmit()" novalidate>
+        <div class="field">
+          <label for="date">Fecha y hora <span aria-hidden="true">*</span></label>
+          <div class="input-wrap">
+            <svg class="input-wrap__icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <rect x="3.5" y="5" width="17" height="15.5" rx="2" stroke="currentColor" stroke-width="1.7" />
+              <path d="M7.5 3.5v3M16.5 3.5v3M3.5 9.5h17" stroke="currentColor" stroke-width="1.7"
+                stroke-linecap="round" />
+              <path d="M8 13h.01M12 13h.01M16 13h.01M8 16.5h.01M12 16.5h.01" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" />
+            </svg>
+            <input id="date" type="datetime-local" formControlName="date"
+              [attr.aria-invalid]="turnForm.controls.date.touched && turnForm.controls.date.invalid"
+              aria-describedby="date-hint date-error" required />
+          </div>
+          <small id="date-hint" class="field__hint">Seleccioná cuándo se atenderá el turno.</small>
+          <small id="date-error" class="field__error"
+            *ngIf="turnForm.controls.date.touched && turnForm.controls.date.invalid" role="alert">
+            Ingresá una fecha y hora válidas.
+          </small>
+        </div>
+
+        <label class="status-control" for="status">
+          <span class="status-control__copy">
+            <strong>Turno activo</strong>
+            <small>Disponible en la agenda de la barbería</small>
+          </span>
+          <span class="switch">
+            <input id="status" type="checkbox" formControlName="status" />
+            <span class="switch__track" aria-hidden="true"></span>
+          </span>
+        </label>
+
+        <button class="submit-button" type="submit">
+          Guardar turno
+          <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path d="M4 10h11M10 5l5 5-5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+
+        <p class="form-card__footnote"><span aria-hidden="true">*</span> Campo obligatorio</p>
+      </form>
+    </section>
+  </div>
+
+  <footer class="page-footer">
+    <span>AGENDA DE BARBERÍA</span>
+    <span>La diferencia está en los detalles.</span>
+  </footer>
+</main>

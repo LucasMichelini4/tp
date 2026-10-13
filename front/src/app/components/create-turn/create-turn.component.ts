@@ -8,8 +8,8 @@ import { TurnDto } from '../../models/turn.model.js';
   imports: [CommonModule, ReactiveFormsModule],
   selector: 'app-create-turn',
   standalone: true,
-  styleUrl: './create-turn.css',
-  template: './create-turn.html',
+  styleUrl: './create-turn.component.css',
+  templateUrl: './create-turn.component.html',
 })
 export class CreateTurnComponent {
   private fb = inject(FormBuilder);
@@ -17,7 +17,7 @@ export class CreateTurnComponent {
 
   turnForm = this.fb.group({
     date: ['', Validators.required],
-    status: [true, Validators.required]
+    status: [true]
   });
 
   onSubmit(): void {
