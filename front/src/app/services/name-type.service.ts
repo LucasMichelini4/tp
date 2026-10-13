@@ -19,16 +19,16 @@ export class NameTypeService {
     getNameTypeDeleted(): Observable<NameType[]> {
         return this.http.get<NameType[]>(`${this.apiUrl}/deleted`);
     }
-    getNameTypeById(id: string): Observable<NameType> {
+    getNameTypeById(id: number): Observable<NameType> {
         return this.http.get<NameType>(`${this.apiUrl}/${id}`);
     }
     updateNameType(nameType: NameType): Observable<NameType> {
         return this.http.put<NameType>(`${this.apiUrl}/{id}`, nameType);
     }
-    deleteNameType(id: string): Observable<void> {
+    deleteNameType(id: number): Observable<void> {
         return this.http.delete<void>(`${this.apiUrl}/${id}`);
     }
-    restoreNameType(id: string): Observable<NameType> {
-        return this.http.patch<NameType>(`${this.apiUrl}/{id}/restore`, {});
+    restoreNameType(id: number): Observable<NameType> {
+        return this.http.patch<NameType>(`${this.apiUrl}/${id}/restore`, {});
     }
 }

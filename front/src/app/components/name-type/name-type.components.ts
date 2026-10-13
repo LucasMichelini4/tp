@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, NgModel, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NameType } from '../../models/name-type.model';
+import { NameTypeService } from '../../services/name-type.service';
 
 @Component({
   imports: [CommonModule, ReactiveFormsModule],
@@ -37,11 +38,11 @@ export class NameTypeComponent implements OnInit{
 
   loadAllData(): void {
     this.loadNameType();
-    this.loadDeletedNameType();
+    this.loadDeleteNameType();
   }
 
   loadNameType(): void {
-    this.NameTypeService.getNameType().subscribe({
+    this.NameTypeService.getNameTypes().subscribe({
       next: (data) => (this.nameType = data),
       error: (err) => {
         console.error('Error al cargar un Nombre', err);
@@ -51,8 +52,8 @@ export class NameTypeComponent implements OnInit{
   }
 
   loadDeleteNameType(): void {
-    this.NameTypeService.getNameType().subscribe({
-      next: (data) => (this.nameType = data,)
+    this.NameTypeService.getNameTypes().subscribe({
+      next: (data) => (this.nameType = data),
       error: (err) => {
         console.error('Error al cargar los Nombres eliminados', err);
       }
@@ -61,7 +62,13 @@ export class NameTypeComponent implements OnInit{
 
   onSubmit(): void {
     if (this.nameTypeForm.invalid) return;
-    const nameTypeData = this.nameTypeForm.getRawValue() as NameType;
+    const rawValues = this.nameTypeForm.getRawValue();
+    const nameTypeData: NameType = {
+      id: rawValues.id ? Number(rawValues.id) : 0,
+      description: rawValues.description ?? '',
+      price: rawValues.price ? Number(rawValues.price) : 0,
+      duration: rawValues.duration ? Number(rawValues.duration) : 0,
+    }
     if (this.isEditing) {
       this.NameTypeService.updateNameType(nameTypeData).subscribe({
         next: () => {
@@ -89,13 +96,13 @@ export class NameTypeComponent implements OnInit{
 
   editNameType(nameType: NameType): void {
     this.isEditing = true;
-    this.nameTypeForm.patchValue(nameType);
+    this.nameTypeForm.patchValue(nameType as any);
     this.nameTypeForm.controls.id.disable();
   }
 
   deletedNameType(id: number): void {
     if (confirm(`Estas seguro que se elimina el Nombre con id: ${id}?`)) {
-      this.NameTypeService.deletedNameType(id).subscribe({
+      this.NameTypeService.deleteNameType(id).subscribe({
         next: () => this.loadAllData(),
         error: (err) => console.error('Error al eliminar', err)
       });
@@ -113,7 +120,7 @@ export class NameTypeComponent implements OnInit{
     this.showDeleted = showDeletedList;
   }
 
-  reserForm(): void {
+  resetForm(): void {
     this.isEditing = false;
     this.nameTypeForm.reset();
     this.nameTypeForm.controls.id.enable();
