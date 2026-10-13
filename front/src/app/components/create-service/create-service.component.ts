@@ -107,7 +107,7 @@ export class ServiceComponent implements OnInit {
   restoreService(id: number): void {
     this.serviceService.restoreService(id).subscribe({
       next: () => this.loadAllData(),
-      error: (err) => console.error('Errpr al restaurar el servicio', err)
+      error: (err) => console.error('Error al restaurar el servicio', err)
     });
   }
 
