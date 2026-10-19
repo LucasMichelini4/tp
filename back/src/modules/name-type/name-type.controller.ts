@@ -9,7 +9,7 @@ export class NameTypeController {
   constructor(private nameTypeService: NameTypeService) { }
 
   @Post()
-  createClient(@Body() nameType: NameTypeDto) {
+  createNameType(@Body() nameType: NameTypeDto) {
     return this.nameTypeService.createNameType(nameType)
   }
 
