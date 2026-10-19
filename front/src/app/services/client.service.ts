@@ -29,6 +29,6 @@ export class ClientService {
         return this.http.delete<void>(`${this.apiUrl}/${dni}`);
     }
     restoreClient(dni: string): Observable<Client> {
-        return this.http.patch<Client>(`${this.apiUrl}/{dni}/restore`, {});
+        return this.http.patch<Client>(`${this.apiUrl}/${dni}/restore`, {});
     }
 }
