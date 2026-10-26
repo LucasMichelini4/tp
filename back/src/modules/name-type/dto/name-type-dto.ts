@@ -7,6 +7,10 @@ export class NameTypeDto {
 
   @IsString()
   @IsNotEmpty()
+  service!: string;
+
+  @IsString()
+  @IsNotEmpty()
   description!: string;
 
   @IsNumber()

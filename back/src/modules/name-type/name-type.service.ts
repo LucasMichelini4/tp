@@ -23,6 +23,10 @@ export class NameTypeService {
     return await this.nameTypeRepository.findOne({ where: { id } });
   }
 
+  async findNameTypeIdService(id: number, service: string){
+    return await this.nameTypeRepository.findOne({where: {id, service} });
+  }
+
   async findAll() {
     return await this.nameTypeRepository.find({ where: { deleted: false } });
   }
@@ -35,8 +39,8 @@ export class NameTypeService {
     return await this.nameTypeRepository.save(nameType);
   }
 
-  async deleteNameType(id: number) {
-    const nameTypeExists = await this.findNameType(id);
+  async deleteNameType(id: number, service: string) {
+    const nameTypeExists = await this.findNameTypeIdService(id, service);
     if (!nameTypeExists) {
       throw new ConflictException('El nameType con id: ' + id + ' no existe')
     }
@@ -47,8 +51,8 @@ export class NameTypeService {
     return rows.affected == 1;
   }
 
-  async restoreNameType(id: number) {
-    const nameTypeExists = await this.findNameType(id);
+  async restoreNameType(id: number, service: string) {
+    const nameTypeExists = await this.findNameTypeIdService(id, service);
     if (!nameTypeExists) {
       throw new ConflictException('El nameType con id: ' + id + ' no existe')
     }

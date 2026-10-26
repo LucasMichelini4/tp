@@ -18,6 +18,13 @@ export class NameTypeController {
     return this.nameTypeService.findNameType(id);
   }
 
+  @Get(':id/:service')
+  getNameTypeIdService(
+    @Param('id') id : number,
+    @Param('service') service : string) {
+      return this.nameTypeService.findNameTypeIdService(id, service)
+    }
+
   @Get()
   getNameTypes() {
     return this.nameTypeService.findAll();
@@ -33,13 +40,15 @@ export class NameTypeController {
     return this.nameTypeService.updateNameType(nameType);
   }
 
-  @Delete('/:id')
-  deleteNameType(@Param('id') id: number) {
-    return this.nameTypeService.deleteNameType(id);
+  @Delete('/:id/:service')
+  deleteNameType(@Param('id') id: number, 
+                 @Param('service') service: string ) {
+    return this.nameTypeService.deleteNameType(id, service);
   }
 
-  @Patch('/restore/:id')
-  restoreNameType(@Param('id') id: number) {
-    return this.nameTypeService.restoreNameType(id);
+  @Patch('/restore/:id/:service')
+  restoreNameType(@Param('id') id: number,
+                  @Param('service') service: string) {
+    return this.nameTypeService.restoreNameType(id, service);
   }
 }

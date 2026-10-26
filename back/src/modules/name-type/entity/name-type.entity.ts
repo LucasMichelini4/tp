@@ -5,6 +5,8 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColum
 export class NameType {
   @PrimaryGeneratedColumn()
   id!: number;
+  @Column({ type: String, nullable: false})
+  service!: string;
   @Column({ type: String, nullable: false, length: 150 })
   description!: string;
   @Column({ type: Number, nullable: false })
