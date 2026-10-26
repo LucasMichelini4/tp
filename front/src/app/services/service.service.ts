@@ -29,12 +29,12 @@ export class ServiceService {
     return this.http.put<Service>(`${this.apiUrl}/{id}`, service);
   }
 
-  deletedService(id: number): Observable<void> {
+  deleteService(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
   restoreService(id: number): Observable<Service> {
-    return this.http.patch<Service>(`${this.apiUrl}/{id}/restore`, {})
+    return this.http.patch<Service>(`${this.apiUrl}/${id}/restore`, {})
   }
 
 } 

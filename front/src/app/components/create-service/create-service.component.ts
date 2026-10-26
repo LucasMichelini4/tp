@@ -97,7 +97,7 @@ export class ServiceComponent implements OnInit {
 
   deletedService(id: number): void {
     if (confirm(`Estas seguro que se elimina el servicio con id: ${id}?`)) {
-      this.serviceService.deletedService(id).subscribe({
+      this.serviceService.deleteService(id).subscribe({
         next: () => this.loadAllData(),
         error: (err) => console.error('Error al eliminar', err)
       });

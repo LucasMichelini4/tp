@@ -5,6 +5,8 @@ import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 export class Bill {
     @PrimaryGeneratedColumn()
     id!: number;
+    @Column({type : String, nullable: false, length : 8})
+    dniC!: string;
     @Column({ type: Date, nullable: false, })
     date!: Date;
     @Column({ type: Number, nullable: false })

@@ -8,13 +8,20 @@ export class BillController {
     constructor(private billService: BillService) {}
 
     @Post()
-    createClient(@Body() bill: BillDto){
+    createBill(@Body() bill: BillDto){
         return this.billService.createBill(bill);
     }
 
     @Get(':id')
     getBillById(@Param('id') id: number) {
         return this.billService.findBill(id);
+    }
+
+    @Get(':id/:dniC')
+    getBillIdDni(
+        @Param('id') id : number,
+        @Param('dniC') dniC : string){
+        return this.billService.findBillIdDni(id, dniC)
     }
 
     @Get()
@@ -27,14 +34,16 @@ export class BillController {
         return this.billService.findAllDeleted();
     }
 
-    @Delete('/:id')
-    deleteBill(@Param('id') id: number) {
-        return this.billService.deleteBill(id);
+    @Delete('/:id/:dniC')
+    deleteBill(@Param('id') id: number,
+               @Param('dniC') dniC : string) {
+        return this.billService.deleteBill(id, dniC);
     }
 
-    @Patch('/restore/:id')
-    restoreBill(@Param('id') id: number) {
-        return this.billService.restoreBill(id);
+    @Patch('/restore/:id/:dniC')
+    restoreBill(@Param('id') id: number,
+                @Param('dniC') dniC: string) {
+        return this.billService.restoreBill(id, dniC);
     }
 }
 

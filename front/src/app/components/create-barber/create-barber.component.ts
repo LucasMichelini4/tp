@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { BarberService } from '../../services/barber.js';
+import { BarberService } from '../../services/barber.service.js';
 import { Barber } from '../../models/barber.model.js';
 
 @Component({

@@ -25,6 +25,10 @@ export class BillService {
         return await this.billRepository.findOne({ where: { id } });
     }
 
+    async findBillIdDni(id: number, dniC: string) {
+        return await this.billRepository.findOne({ where: { id, dniC } });
+    }
+
     async findAll() {
         return await this.billRepository.find({ where: { deleted: false } });
     }
@@ -33,10 +37,10 @@ export class BillService {
         return await this.billRepository.find({ where: { deleted: true } });
     }
 
-    async deleteBill(id: number) {
-        const billExists = await this.findBill(id);
+    async deleteBill(id : number, dniC : string) {
+        const billExists = await this.findBillIdDni(id, dniC);
         if(!billExists) {
-            throw new ConflictException('La factura con el Id: ' + id + ' no existe');
+            throw new ConflictException('La factura con ID:' + id + 'del cliente con DNI: ' + dniC + ' no existe');
         }
         if (billExists.deleted) {
             throw new ConflictException('La factura ya esta borrada');
@@ -45,10 +49,10 @@ export class BillService {
         return rows.affected == 1;
     }
 
-    async restoreBill(id: number) {
-        const billExists = await this.findBill(id);
+    async restoreBill(id: number, dniC: string) {
+        const billExists = await this.findBillIdDni(id, dniC);
         if(!billExists) {
-            throw new ConflictException('La factura con id: ' + id + ' no existe');
+            throw new ConflictException('La factura con ID:' + id + 'del cliente con DNI: ' + dniC + ' no existe');
         }
         if (!billExists.deleted) {
             throw new ConflictException('La factura no esta borrada');
