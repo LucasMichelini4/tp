@@ -8,6 +8,10 @@ export class ServiceDto {
 
     @IsString()
     @IsNotEmpty()
+    nameType!: string;
+
+    @IsString()
+    @IsNotEmpty()
     name!: string;
 
     @IsOptional()

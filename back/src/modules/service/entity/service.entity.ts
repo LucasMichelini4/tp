@@ -4,6 +4,8 @@ import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 export class Service {
     @PrimaryGeneratedColumn()
     id!: number;
+    @Column({type: String, nullable: false, length: 10})
+    nameType!: string;
     @Column({ type: String, nullable: false, length: 10 })
     name!: string;
     @Column({ type: Boolean, nullable: false, default: false })

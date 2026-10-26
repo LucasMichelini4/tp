@@ -2,6 +2,8 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/
 import { ApiTags } from '@nestjs/swagger';
 import { ServiceService } from './service.service';
 import { ServiceDto } from './dto/service-dto';
+import { get } from 'http';
+import { NameType } from '../name-type/entity/name-type.entity';
 
 @Controller('api/v1/service')
 @ApiTags('Service')
@@ -16,6 +18,13 @@ export class ServiceController {
     @Get(':id')
     getServiceById(@Param('id') id: number) {
         return this.serviceService.findService(id);
+    }
+
+    @Get(':id/:nameType')
+    getServiceIdnameType(
+        @Param('id') id: number,
+        @Param('nameType') nameType: string) {
+            return this.serviceService.findServiceIdnameType(id, nameType)
     }
 
     @Get()

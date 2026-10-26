@@ -23,6 +23,10 @@ export class ServiceService {
         return await this.serviceRepository.findOne({ where: { id } });
     }
 
+    async findServiceIdnameType(id: number, nameType: string) {
+        return await this.serviceRepository.findOne({where: { id, nameType } });
+    }
+
     async findAll() {
         return await this.serviceRepository.find({ where: {deleted: false } });
     }
