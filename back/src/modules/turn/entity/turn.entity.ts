@@ -8,6 +8,8 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn
 export class Turn {
   @PrimaryGeneratedColumn()
   id?: number;
+  @Column({ type: String, nullable: false, length: 8 })
+  dniC!: string;
   @Column({ type: Date, nullable: false })
   date!: Date;
   @Column({ type: Boolean, nullable: false, default: false })
@@ -15,21 +17,21 @@ export class Turn {
   @Column({ type: Boolean, nullable: false, default: false })
   deleted?: boolean;
 
-  @ManyToOne(() => Client, (client) => client.turns, { nullable: false })
-  @JoinColumn({ name: 'client_dni', referencedColumnName: 'dni' })
-  client!: Client;
+  //@ManyToOne(() => Client, (client) => client.turns, { nullable: false })
+  //@JoinColumn({ name: 'client_dni', referencedColumnName: 'dni' })
+  //client!: Client;
 
-  @ManyToOne(() => Barber, (barber) => barber.turns, { nullable: false })
-  @JoinColumn({ name: 'barber_dni', referencedColumnName: 'dni' })
-  barber!: Barber;
+  //@ManyToOne(() => Barber, (barber) => barber.turns, { nullable: false })
+  //@JoinColumn({ name: 'barber_dni', referencedColumnName: 'dni' })
+  //barber!: Barber;
 
-  @ManyToOne(() => NameType, (nameType) => nameType.turns, { nullable: false })
-  @JoinColumn({ name: 'nameType_id', referencedColumnName: 'id' })
-  nameType!: NameType;
+  //@ManyToOne(() => NameType, (nameType) => nameType.turns, { nullable: false })
+  //@JoinColumn({ name: 'nameType_id', referencedColumnName: 'id' })
+  //nameType!: NameType;
 
-  @OneToOne(() => Salon, (salon) => salon.turn, { nullable: false })
-  @JoinColumn({ name: 'salon_cuit', referencedColumnName: 'cuit' })
-  salon!: Salon;
+  //@OneToOne(() => Salon, (salon) => salon.turn, { nullable: false })
+  //@JoinColumn({ name: 'salon_cuit', referencedColumnName: 'cuit' })
+  //salon!: Salon;
 
   //@OneToOne(() => Bill, (bill) => bill.turn, { nullable: false })
   //@JoinColumn({ name: 'bill_id', referencedColumnName: 'id' })

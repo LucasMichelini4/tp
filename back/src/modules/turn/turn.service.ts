@@ -24,6 +24,10 @@ export class TurnService {
     return await this.turnRepository.findOne({ where: { id } });
   }
 
+  async findTurnIdDni(id: number, dniC: string) {
+    return await this.turnRepository.findOne({ where: { id, dniC } });
+  }
+
   async findAll() {
     return await this.turnRepository.find({ where: { deleted: false } })
   }
@@ -36,11 +40,11 @@ export class TurnService {
     return await this.turnRepository.save(turn);
   }
 
-  async deleteTurn(id: number) {
-    const turnExists = await this.findTurn(id);
+  async deleteTurn(id: number, dniC: string) {
+    const turnExists = await this.findTurnIdDni(id, dniC);
 
     if (!turnExists) {
-      throw new ConflictException('El turno con ID: ' + id + ' no existe')
+      throw new ConflictException('El turno con ID: ' + id + ' del cliente con DNI: ' + dniC + ' no existe')
     }
     if (turnExists.deleted) {
       throw new ConflictException('El turno ya fue eliminado')
@@ -51,10 +55,10 @@ export class TurnService {
     return rows.affected = 1
   }
 
-  async restoreTurn(id: number) {
-    const turnExists = await this.findTurn(id);
+  async restoreTurn(id: number, dniC: string) {
+    const turnExists = await this.findTurnIdDni(id, dniC);
     if (!turnExists) {
-      throw new ConflictException('El turno con ID: ' + id + ' no existe');
+      throw new ConflictException('El turno con ID: ' + id + ' del cliente con DNI: ' + dniC + ' no existe');
     }
     if (!turnExists.deleted) {
       throw new ConflictException('El turno no esta borrado');

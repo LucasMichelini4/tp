@@ -6,10 +6,11 @@ export class Barber {
 
     @PrimaryColumn()
     dni!: string;
-    @Column({ type: String, nullable: false, length: 10 })
+    @Column({ type: String, nullable: false, length: 30 })
     name!: string;
     @Column({ type: Boolean, nullable: false, default: false })
     deleted?: boolean;
-    @OneToMany(() => Turn, (turn) => turn.client)
-    turns!: Turn[];
+
+    //@OneToMany(() => Turn, (turn) => turn.barber)
+    //turns!: Turn[];
 }

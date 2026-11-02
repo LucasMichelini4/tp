@@ -16,6 +16,14 @@ export class TurnController {
     return this.turnService.findTurn(id);
   }
 
+  @Get(':id/:dniC')
+  getBillIdDni(
+    @Param('id') id: number,
+    @Param('dniC') dniC: string) {
+    return this.turnService.findTurnIdDni(id, dniC)
+  }
+
+
   @Get()
   getTurn() {
     return this.turnService.findAll();
@@ -31,13 +39,17 @@ export class TurnController {
     return this.turnService.updateTurn(turn);
   }
 
-  @Delete('/:id')
-  deleteTurn(@Param('id') id: number) {
-    return this.turnService.deleteTurn(id);
+  @Delete('/:id/:dniC')
+  deleteTurn(
+    @Param('id') id: number,
+    @Param('dniC') dniC: string) {
+    return this.turnService.deleteTurn(id, dniC);
   }
 
-  @Patch('/restore/:id')
-  restoreTurn(@Param('id') id: number) {
-    return this.turnService.restoreTurn(id);
+  @Patch('/restore/:id/:dniC')
+  restoreTurn(
+    @Param('id') id: number,
+    @Param('dniC') dniC: string) {
+    return this.turnService.restoreTurn(id, dniC);
   }
 }

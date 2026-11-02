@@ -6,10 +6,10 @@ import { BillDto } from './dto/bill-dto';
 @Controller('api/v1/bill')
 
 export class BillController {
-    constructor(private billService: BillService) {}
+    constructor(private billService: BillService) { }
 
     @Post()
-    createBill(@Body() bill: BillDto){
+    createBill(@Body() bill: BillDto) {
         return this.billService.createBill(bill);
     }
 
@@ -20,13 +20,13 @@ export class BillController {
 
     @Get(':id/:dniC')
     getBillIdDni(
-        @Param('id') id : number,
-        @Param('dniC') dniC : string){
+        @Param('id') id: number,
+        @Param('dniC') dniC: string) {
         return this.billService.findBillIdDni(id, dniC)
     }
 
     @Get()
-    getBill(){
+    getBill() {
         return this.billService.findAll();
     }
 
@@ -37,13 +37,13 @@ export class BillController {
 
     @Delete('/:id/:dniC')
     deleteBill(@Param('id') id: number,
-               @Param('dniC') dniC : string) {
+        @Param('dniC') dniC: string) {
         return this.billService.deleteBill(id, dniC);
     }
 
     @Patch('/restore/:id/:dniC')
     restoreBill(@Param('id') id: number,
-                @Param('dniC') dniC: string) {
+        @Param('dniC') dniC: string) {
         return this.billService.restoreBill(id, dniC);
     }
 }

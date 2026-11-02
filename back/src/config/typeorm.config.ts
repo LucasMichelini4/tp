@@ -8,5 +8,6 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
   password: '1234',
   database: 'barberia',
   autoLoadEntities: true,
-  synchronize: true,
+  synchronize: false,
+
 };

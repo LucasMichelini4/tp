@@ -14,6 +14,7 @@ export class Client {
   phone!: string;
   @Column({ type: Boolean, nullable: false, default: false })
   deleted?: boolean;
-  @OneToMany(() => Turn, (turn) => turn.client)
-  turns!: Turn[];
+
+  //@OneToMany(() => Turn, (turn) => turn.client)
+  //turns!: Turn[];
 }

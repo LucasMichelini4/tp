@@ -5,7 +5,7 @@ import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColum
 export class NameType {
   @PrimaryGeneratedColumn()
   id!: number;
-  @Column({ type: String, nullable: false})
+  @Column({ type: String, nullable: false })
   service!: string;
   @Column({ type: String, nullable: false, length: 150 })
   description!: string;
@@ -16,8 +16,8 @@ export class NameType {
   @Column({ type: Boolean, nullable: false, default: false })
   deleted?: boolean;
 
-  @OneToMany(() => Turn, (turn) => turn.nameType)
-  turns!: Turn[];
+  //@OneToMany(() => Turn, (turn) => turn.nameType)
+  //turns!: Turn[];
 
   //@ManyToOne(() => Service, (service) => service.nameTypes, { nullable: false })
   //@JoinColumn({ name: 'service_id', referencedColumnName: 'id' })

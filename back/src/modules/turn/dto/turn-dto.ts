@@ -1,5 +1,5 @@
 import { Type } from "class-transformer";
-import { IsBoolean, isDate, IsDate, IsNotEmpty, IsNumber, IsOptional, IsPositive } from "class-validator";
+import { IsBoolean, IsDate, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class TurnDto {
 
@@ -7,6 +7,10 @@ export class TurnDto {
   @IsNotEmpty()
   @IsOptional()
   id!: number;
+
+  @IsString()
+  @IsNotEmpty()
+  dniC!: string;
 
   @IsNotEmpty()
   @Type(() => Date)

@@ -6,7 +6,7 @@ export class Salon {
   @PrimaryColumn()
   cuit!: string;
 
-  @Column({ type: String, nullable: false, length: 10 })
+  @Column({ type: String, nullable: false, length: 100 })
   legalName!: string;
 
   @Column({ type: String, nullable: false, length: 30 })
@@ -18,6 +18,6 @@ export class Salon {
   @Column({ type: Boolean, nullable: false })
   deleted?: boolean;
 
-  @OneToOne(() => Turn, (turn) => turn.salon)
-  turn!: Turn[];
+  //@OneToOne(() => Turn, (turn) => turn.salon)
+  //turn!: Turn[];
 }

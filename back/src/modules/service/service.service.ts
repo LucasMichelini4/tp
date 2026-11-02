@@ -23,24 +23,24 @@ export class ServiceService {
         return await this.serviceRepository.findOne({ where: { id } });
     }
 
-    async findServiceIdnameType(id: number, nameType: string) {
-        return await this.serviceRepository.findOne({where: { id, nameType } });
+    async findServiceIdNameType(id: number, nameType: string) {
+        return await this.serviceRepository.findOne({ where: { id, nameType } });
     }
 
     async findAll() {
-        return await this.serviceRepository.find({ where: {deleted: false } });
+        return await this.serviceRepository.find({ where: { deleted: false } });
     }
 
     async findAllDeleted() {
-        return await this.serviceRepository.find({ where: {deleted: true } });
+        return await this.serviceRepository.find({ where: { deleted: true } });
     }
 
     async updateService(service: ServiceDto) {
         return await this.serviceRepository.save(service);
     }
 
-    async deleteService(id: number) {
-        const serviceExists = await this.findService(id);
+    async deleteService(id: number, nameType: string) {
+        const serviceExists = await this.findServiceIdNameType(id, nameType);
         if (!serviceExists) {
             throw new ConflictException('El service con el ID: ' + id + ' no existe');
         }
@@ -51,8 +51,8 @@ export class ServiceService {
         return rows.affected == 1;
     }
 
-    async restoreService(id: number) {
-        const serviceExists = await this.findService(id);
+    async restoreService(id: number, nameType: string) {
+        const serviceExists = await this.findServiceIdNameType(id, nameType);
         if (!serviceExists) {
             throw new ConflictException('El service con ID: ' + id + ' no existe');
         }
